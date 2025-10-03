@@ -1,0 +1,241 @@
+/* Custom styles for Movie Voting App */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Movie Cards */
+.movie-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.movie-poster {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.movie-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 0;
+}
+
+.movie-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #6c757d;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-meta {
+    margin-bottom: 0.5rem;
+}
+
+/* Vote Buttons */
+.vote-btn,
+.remove-vote-btn {
+    min-width: 60px;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.vote-btn:hover {
+    transform: scale(1.05);
+}
+
+.remove-vote-btn {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.remove-vote-btn:hover {
+    background-color: #dc3545;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Form Styling */
+.card-header {
+    font-weight: 600;
+}
+
+#suggestForm .form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.loading-overlay.show {
+    display: flex;
+}
+
+.loading-spinner {
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Toast Notifications */
+.toast {
+    min-width: 300px;
+}
+
+.toast-success {
+    border-left: 4px solid #28a745;
+}
+
+.toast-error {
+    border-left: 4px solid #dc3545;
+}
+
+.toast-info {
+    border-left: 4px solid #17a2b8;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.7rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .movie-poster {
+        height: 150px;
+    }
+
+    .movie-placeholder {
+        height: 150px;
+    }
+
+    .btn-sm {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-6.col-lg-4 {
+        margin-bottom: 1rem;
+    }
+
+    .movie-description {
+        -webkit-line-clamp: 2;
+    }
+
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .vote-section {
+        margin-top: 0.5rem;
+        align-self: flex-end;
+    }
+}
+
+/* Animation for new movies */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.movie-card.new-movie {
+    animation: slideInUp 0.5s ease-out;
+}
+
+/* Highlight effect for voting */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+.vote-btn.voting {
+    animation: pulse 1s;
+}
+
+/* Empty state styling */
+.text-center.py-5 {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    border: 2px dashed #dee2e6;
+}
+
+/* Custom scrollbar for movie descriptions */
+.movie-description::-webkit-scrollbar {
+    width: 4px;
+}
+
+.movie-description::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.movie-description::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+.movie-description::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
