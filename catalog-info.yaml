@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: movie-vote
+  annotations:
+    github.com/project-slug: wyattfry/movie-vote
+spec:
+  type: other
+  lifecycle: unknown
+  owner: guests
